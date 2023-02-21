@@ -49,6 +49,14 @@ def _js_mod(a, b):
     return (a or 0) % b
 
 
+def _js_exp_dummy_backofc(a, xx):
+    if not xx:
+        return 1  # even 0 ** 0 !!
+    elif JS_Undefined in (a, xx):
+        return float('nan')
+    return (a or 0) ** xx
+
+
 def _js_exp(a, b):
     if not b:
         return 1  # even 0 ** 0 !!
