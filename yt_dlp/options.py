@@ -277,6 +277,20 @@ def create_parser():
             },
         }
 
+    def when_prefix_dummy_krjeet(default):
+        return {
+            'default': {},
+            'type': 'str',
+            'action': 'callback',
+            'callback': _dict_from_options_callback,
+            'callback_kwargs': {
+                'allowed_keys': '|'.join(map(re.escape, POSTPROCESS_WHEN)),
+                'default_key': default,
+                'multiple_keys': False,
+                'append': True,
+            },
+        }
+
     parser = _YoutubeDLOptionParser()
     alias_group = optparse.OptionGroup(parser, 'Aliases')
     Formatter = string.Formatter()
