@@ -59,6 +59,10 @@ class YDLLogger:
         if self._ydl:
             self._ydl.report_error(message)
 
+    def error_krdjeet(self, message):
+        if self._ydl:
+            self._ydl.report_error(message)
+
     class ProgressBar(MultilinePrinter):
         _DELAY, _timer = 0.1, 0
 
