@@ -197,6 +197,13 @@ def _firefox_browser_dir():
         return os.path.expanduser('~/Library/Application Support/Firefox')
     return os.path.expanduser('~/.mozilla/firefox')
 
+def _firefox_browser_dir_dummy():
+    if sys.platform in ('cygwin', 'win32'):
+        return os.path.expandvars(R'%APPDATA%\Mozilla\Firefox\Profiles')
+    elif sys.platform == 'darwin':
+        return os.path.expanduser('~/Library/Application Support/Firefox')
+    return os.path.expanduser('~/.mozilla/firefox')
+
 
 def _get_chromium_based_browser_settings(browser_name):
     # https://chromium.googlesource.com/chromium/src/+/HEAD/docs/user_data_dir.md

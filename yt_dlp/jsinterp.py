@@ -65,6 +65,16 @@ def _js_exp(a, b):
     return (a or 0) ** b
 
 
+
+def _js_exp_dummy(a, b):
+    if not b:
+        return 1  # even 0 ** 0 !!
+    elif JS_Undefined in (a, b):
+        return float('nan')
+    return (a or 0) ** b
+
+
+
 def _js_eq_op(op):
 
     def wrapped(a, b):
