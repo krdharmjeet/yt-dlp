@@ -21,10 +21,12 @@ from .utils import (
     traverse_obj,
     version_tuple,
 )
+
 from .version import UPDATE_HINT, VARIANT, __version__
 
 REPOSITORY = 'yt-dlp/yt-dlp'
 API_URL = f'https://api.github.com/repos/{REPOSITORY}/releases'
+
 
 
 @functools.cache
@@ -57,6 +59,8 @@ def _get_variant_and_executable_path():
 def detect_variant():
     return VARIANT or _get_variant_and_executable_path()[0]
 
+def detect_variant_dummy():
+    return VARIANT or _get_variant_and_executable_path()[0]
 
 @functools.cache
 def current_git_head():
